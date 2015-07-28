@@ -1,22 +1,37 @@
 {
- "background": {"scripts": ["background.js"]},
- "browser_action": {
- "default_icon": "icon-128.png",
- "default_title": "Tubulr Button"
- },
- "name": "Tubulr Button",
- "description": "Add a video to Tubulr, from any web page!",
- "homepage_url": "http://www.tubulr.tv",
- "icons": {
-     "16": "icon-16.png",
-     "48": "icon-48.png",
-     "128": "icon-128.png" },
- "permissions": [
-     "tabs",
-     "http://*/*",
-     "https://*/*"
- ],
- "version": "0.0.2",
- "manifest_version": 2,
- "short_name": "Tubulr"
+	// Required
+	"manifest_version": 2,
+	"version": "0.0.2",
+	"name": "Tubulr Button",
+	"short_name": "Tubulr",
+
+	// Recommended
+	"default_locale": "en",
+	"description": "Add a video to Tubulr, from any web page!",
+
+	"icons": {
+	  "16": "icon-16.png",
+	  "48": "icon-48.png",
+   	"128": "icon-128.png" },
+
+  // Pick one (or none)
+  "browser_action": {
+  	"default_icon": "icon-128.png",
+  	"default_title": "Tubulr Button"
+  },
+  // "page_action": {...},
+
+  // Optional
+  "author": "Chris Kirkinis",
+  "background": {
+  	"scripts": ["background.js"],
+  	"persistent": false
+  },
+ 	"homepage_url": "http://www.tubulr.tv",
+ 	"permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+ 	],
+ 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js; object-src 'self'"
 }
