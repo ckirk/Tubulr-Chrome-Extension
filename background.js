@@ -1,6 +1,6 @@
-// Loads forward.js
+// Loads loader.js
 chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.tabs.executeScript(tab.id, {file: "forward.js"})
+    chrome.tabs.executeScript(tab.id, {file: "loader.js"})
 });
 
 // Extension Install Event
