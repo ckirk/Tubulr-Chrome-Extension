@@ -5,32 +5,53 @@ if (!window.hasOwnProperty('flag_98cds0d')) {
   window.flag_98cds0d = true; // set flag - so button can't be re-triggered
 
   // Main Variables
-  // domain = 'http://localhost:3000/';
+  domain = 'http://localhost:3000/';
   // domain = 'https://tubulr-staging.herokuapp.com/'; // staging domain
-  domain = 'https://tubulr.herokuapp.com/'; // production domain
+  // domain = 'https://tubulr.herokuapp.com/'; // production domain
 
   loadingIcon = '<svg width="60px" height="60px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-dashinfinity ext-loading_icon"><path d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z" fill="none" stroke="#ff9900" stroke-width="5" stroke-dasharray="8" stroke-dashoffset="0"><animate attributeName="stroke-dashoffset" from="0" to="40" begin="0" dur="1s" repeatCount="indefinite" fill="freeze"></animate></path></svg>'
   loadingIconCircle = '<svg version="1.1" id="bmk-circle_spinner" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve"><path opacity="0.2" fill="#ff9900" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/><path fill="#ff9900" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0C22.32,8.481,24.301,9.057,26.013,10.047z"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.5s" repeatCount="indefinite"/></path></svg>'
   var user = {};
-  var cssFilename = 'videofinder.css';
   var foundVideos = []; // array of video objects containing title, id, and thumbnail url
   onYouTubePage = false;
+  alert('test #3');
+  buildPopupBase();
 
+  function buildPopupBase() {
+    if ( $('#bmk-container').length == 0) { // only if doesn't already exist
+      // create main div
+      $bmkContainer = $('<div>');
+      $bmkContainer.attr('id', 'bmk-container').attr('class', 'bmk-show');
 
-  // LOAD ASSETS -> CSS, jQuery, images
+      // create message box
+      $messageBox = $('<div>');
+      $messageBox.attr('id', 'bmk-message-box');
 
-  loadCss(domain + cssFilename); // load external style sheet
-  jQueryLoad(function() { // load jQuery
-    console.log('jquery loaded');
-    checkSignIn(function() {
+      $('body').append($bmkContainer);
+    }
+  }
+
+  // LOAD ASSETS -> CSS, jQuery
+  // importCss();
+  checkSignIn(function() {
     buildPopupBase();
-      if (user.signedIn) {
-        checkCurrentUrl();
-      } else {
-        loginPopup();
-      }
-    });
-  }); 
+    if (user.signedIn) {
+      checkCurrentUrl();
+    } else {
+      loginPopup();
+    }
+  });
+
+}
+
+function importCss() {
+  var el = document.createElement("link");
+  el.type = "text/css";
+  el.rel = "stylesheet";
+  el.href = "videofinder.css";
+  var head = document.getElementsByTagName("head")[0];
+  head.appendChild(el);
+  console.log('stylesheet imported');
 }
 
 // Check Current URL
@@ -451,40 +472,6 @@ function finderClickable() {
 ////////////////////////////////
 // UTILITY FUNCTIONS ///////////
 ////////////////////////////////
-
-function jQueryLoad(callback) {
-  var version = '1.11.3';
-  if (window.jQuery === undefined || window.jQuery.fn.jquery < version) { // if jQuery is not loaded or its an old version of jQuery, load jQuery
-    var script = document.createElement("script")
-    script.type = "text/javascript";
-    if (script.readyState) { //IE
-      script.onreadystatechange = function () {
-        if (script.readyState == "loaded" || script.readyState == "complete") {
-          script.onreadystatechange = null;
-          callback();
-        }
-      };
-    } else { //Others
-      script.onload = function () {
-        callback();
-      };
-    }
-    script.src = "https://ajax.googleapis.com/ajax/libs/jquery/" + version + "/jquery.min.js";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  } else {
-    callback(); // otherwise we have what we need and we're good to move on
-  }
-}
-
-function loadCss(url) {
-  var el = document.createElement("link");
-  el.type = "text/css";
-  el.rel = "stylesheet";
-  el.href = url;
-  var head = document.getElementsByTagName("head")[0];
-  head.appendChild(el);
-  console.log('stylesheet imported: ' + url);
-}
 
 function checkSignIn(callback) {
   $.ajax({
