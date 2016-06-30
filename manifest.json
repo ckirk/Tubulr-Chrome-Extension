@@ -23,6 +23,7 @@
   	"scripts": ["background.js"],
   	"persistent": false
   },
+  "web_accessible_resources": ["images/*.png"],
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js https://www.tubulr.tv https://tubulr.herokuapp.com; object-src 'self'",
  	"homepage_url": "http://www.tubulr.tv",
  	"permissions": [

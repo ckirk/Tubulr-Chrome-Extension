@@ -1,9 +1,23 @@
-// Loads loader.js
+// Executes videofinder.js when extension button is clicked
+
 chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.tabs.executeScript(tab.id, {file: "loader.js"})
+
+	// Inject CSS
+	chrome.tabs.insertCSS(null, { file: "videofinder.css" }, function() {
+
+		// Inject jQuery
+		chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
+
+			// Inject videofinder.js
+		  chrome.tabs.executeScript(null, { file: "videofinder.js" });
+		});
+	});
 });
 
+
+
 // Extension Install Event
+	// send tracking data when extension is installed
 chrome.runtime.onInstalled.addListener(function(details) {
 	if (details.reason == "install") {
 
