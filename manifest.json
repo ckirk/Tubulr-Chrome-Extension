@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
-	"version": "0.0.6",
-	"name": "Add to Tubulr.tv",
-	"short_name": "Tubulr.tv",
+	"version": "0.0.8",
+	"name": "Add to Tubulr",
+	"short_name": "Tubulr",
 
-	"description": "Add videos to Tubulr.tv, from any web page!",
+	"description": "Add videos to Tubulr - from any web page!",
 	"icons": {
 	  "16": "icon-16.png",
 	  "48": "icon-48.png",
@@ -15,7 +15,7 @@
       "19": "icon-19.png",
       "38": "icon-38.png"
     },
-  	"default_title": "Add to Tubulr.tv"
+  	"default_title": "Add to Tubulr"
   },
 
   "author": "Chris Kirkinis",
