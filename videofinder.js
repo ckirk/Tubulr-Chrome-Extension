@@ -17,9 +17,10 @@ if (!window.hasOwnProperty('flag_98cds0d')) {
   var foundVideos = []; // array of video objects containing title, id, and thumbnail url
   var current_url = location.href;
 
-  var heartImgUrl = chrome.extension.getURL("images/bmk-heart.png");
-  var addImgUrl = chrome.extension.getURL("images/bmk-plus.png");
-  var laterImgUrl = chrome.extension.getURL("images/bmk-clock-o.png");
+  // Image URLs
+  var heartImgUrl = chrome.extension.getURL("images/heart.png");
+  var addImgUrl = chrome.extension.getURL("images/add.png");
+  var laterImgUrl = chrome.extension.getURL("images/later.png");
 
   onYouTubePage = false;
 

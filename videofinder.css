@@ -123,13 +123,14 @@
 }
 
 .ext-button.ext-heart {
-  background-image: url('/heart.png');
+  /*background-image: url('/heart.png');*/
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/heart-sm.png');
 }
 .ext-button.ext-add {
-  background-image: url('/plus.png');
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/add-sm.png');
 }
 .ext-button.ext-watchlater {
-  background-image: url('/clock-o.png');
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/later-sm.png');
 }
 
 .ext-action.ext-heart:hover .ext-button {
