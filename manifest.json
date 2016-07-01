@@ -6,14 +6,14 @@
 
 	"description": "Add videos to Tubulr - from any web page!",
 	"icons": {
-	  "16": "icon-16.png",
-	  "48": "icon-48.png",
-   	"128": "icon-128.png" },
+	  "16": "images/icon-16.png",
+	  "48": "images/icon-48.png",
+   	"128": "images/icon-128.png" },
 
   "browser_action": {
     "default_icon": {
-      "19": "icon-19.png",
-      "38": "icon-38.png"
+      "19": "images/icon-19.png",
+      "38": "images/icon-38.png"
     },
   	"default_title": "Add to Tubulr"
   },
